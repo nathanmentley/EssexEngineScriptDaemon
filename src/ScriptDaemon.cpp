@@ -15,14 +15,6 @@ EssexEngine::Daemons::Script::ScriptDaemon::ScriptDaemon(WeakPointer<Context> _c
 
 EssexEngine::Daemons::Script::ScriptDaemon::~ScriptDaemon() { }
 
-extern "C" {
-    void daemon_init(EssexEngine::Context* context) {
-        context->RegisterDaemon<EssexEngine::Daemons::Script::ScriptDaemon>(
-            new EssexEngine::Daemons::Script::ScriptDaemon(context)
-        );
-    }
-}
-
 void EssexEngine::Daemons::Script::ScriptDaemon::InitScripting() {
     GetDriver()->InitScripting();
 }
